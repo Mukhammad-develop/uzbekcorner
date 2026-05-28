@@ -1,0 +1,106 @@
+generator client {
+    provider = "prisma-client-js"
+    binaryTargets = ["native", "linux-musl-arm64-openssl-3.0.x", "rhel-openssl-3.0.x", "rhel-openssl-1.1.x", "debian-openssl-3.0.x", "debian-openssl-1.1.x"]
+}
+
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  name      String?
+  role      String   @default("ADMIN")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+/// Singleton settings row (we keep a single row with id = 1)
+model RestaurantSettings {
+  id               Int      @id @default(1)
+  slotIntervalMin  Int      @default(15)
+  bookingDurationMin Int    @default(60)
+  inclusive        Boolean  @default(true)
+  restaurantName   String   @default("Uzbek Corner London")
+  address          String   @default("Queensway 23-25, W2 4QJ, London, United Kingdom")
+  phone            String   @default("+44 20 0000 0000")
+  email            String   @default("hello@uzbekcorner.co.uk")
+  updatedAt        DateTime @updatedAt
+}
+
+model OpeningHour {
+  id         Int      @id @default(autoincrement())
+  dayOfWeek  Int      @unique // 0 = Sunday .. 6 = Saturday
+  openTime   String   @default("12:30") // HH:mm
+  closeTime  String   @default("21:30") // HH:mm
+  closed     Boolean  @default(false)
+  updatedAt  DateTime @updatedAt
+}
+
+model Table {
+  id         String   @id @default(cuid())
+  label      String
+  capacity   Int
+  sortOrder  Int      @default(0)
+  active     Boolean  @default(true)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  bookings   Booking[]
+}
+
+model Booking {
+  id            String   @id @default(cuid())
+  tableId       String
+  table         Table    @relation(fields: [tableId], references: [id], onDelete: Cascade)
+  date          String   // YYYY-MM-DD
+  startTime     String   // HH:mm
+  durationMin   Int      @default(60)
+  partySize     Int
+  customerName  String
+  phone         String
+  email         String
+  notes         String?
+  status        String   @default("CONFIRMED") // CONFIRMED | CANCELLED
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@index([date, tableId])
+  @@index([status])
+}
+
+model Category {
+  id         String      @id @default(cuid())
+  name       String
+  description String?
+  sortOrder  Int         @default(0)
+  active     Boolean     @default(true)
+  createdAt  DateTime    @default(now())
+  updatedAt  DateTime    @updatedAt
+  items      MenuItem[]
+}
+
+model MenuItem {
+  id          String   @id @default(cuid())
+  categoryId  String
+  category    Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  name        String
+  description String?
+  price       Float
+  imageUrl    String?  // public URL (direct s3 URL)
+  imageKey    String?  // s3 key
+  available   Boolean  @default(true)
+  sortOrder   Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([categoryId])
+}
+
+model NotificationEmail {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  createdAt DateTime @default(now())
+}
