@@ -33,12 +33,8 @@ jspm_packages/
 # Optional eslint cache
 .eslintcache
 
-# Next.js build output
-.next/
-out/
-
 # Production build output
-build/
+out/
 
 # Operating System files
 .DS_Store
