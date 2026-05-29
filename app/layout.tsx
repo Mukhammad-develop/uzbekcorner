@@ -12,18 +12,55 @@ const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-displa
 const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-mono', display: 'swap' })
 
 export const metadata: Metadata = {
-  metadataBase: process.env.NEXTAUTH_URL ? new URL(process.env.NEXTAUTH_URL) : undefined,
-  title: 'Uzbek Corner London — Authentic Uzbek cuisine in Streatham',
+  metadataBase: new URL('https://uzbekcorner.uk'),
+  title: {
+    default: 'Uzbek Corner London — Authentic Uzbek cuisine in Streatham',
+    template: '%s | Uzbek Corner London',
+  },
   description:
-    'Uzbek Corner London serves Plov, Somsa, Lagman, Shashlik and more — an authentic Uzbek table in the heart of Streatham.',
+    'Uzbek Corner London serves Plov, Somsa, Lagman, Shashlik and more — an authentic Uzbek table in the heart of Streatham, SW16.',
+  keywords: [
+    'Uzbek restaurant London', 'Uzbek Corner', 'Plov London', 'Central Asian food London',
+    'Streatham restaurant', 'Somsa London', 'Lagman London', 'Shashlik London',
+    'Uzbek food SW16', 'halal restaurant Streatham',
+  ],
+  authors: [{ name: 'Uzbek Corner London', url: 'https://uzbekcorner.uk' }],
+  creator: 'Uzbek Corner London',
   icons: {
     icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }],
     shortcut: ['/favicon.svg'],
   },
   openGraph: {
-    title: 'Uzbek Corner London',
-    description: 'Authentic Uzbek cuisine in the heart of London.',
+    type: 'website',
+    locale: 'en_GB',
+    url: 'https://uzbekcorner.uk',
+    siteName: 'Uzbek Corner London',
+    title: 'Uzbek Corner London — Authentic Uzbek cuisine in Streatham',
+    description:
+      'Homemade Plov, Somsa, Lagman and Shashlik — an authentic taste of Central Asia in Streatham, London SW16.',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Uzbek Corner London — Authentic Uzbek restaurant in Streatham',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Uzbek Corner London — Authentic Uzbek cuisine in Streatham',
+    description:
+      'Homemade Plov, Somsa, Lagman and Shashlik — an authentic taste of Central Asia in Streatham, London SW16.',
     images: ['/og-image.png'],
+  },
+  alternates: {
+    canonical: 'https://uzbekcorner.uk',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, 'max-image-preview': 'large' },
   },
 }
 

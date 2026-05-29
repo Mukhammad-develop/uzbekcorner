@@ -9,6 +9,7 @@ import { cn } from '@/lib/utils'
 const LINKS = [
   { href: '/', label: 'Home' },
   { href: '/menu', label: 'Menu' },
+  { href: '/blog', label: 'Blog' },
   { href: '/book', label: 'Book a table' },
   { href: '/#visit', label: 'Visit' },
 ]
@@ -41,7 +42,7 @@ export function SiteHeader() {
           </span>
           <span className="flex flex-col leading-none">
             <span className="font-display text-[17px] text-navy tracking-wide">Uzbek Corner</span>
-            <span className="eyebrow text-[10px] mt-1">London · W2</span>
+            <span className="eyebrow text-[10px] mt-1">London · SW16</span>
           </span>
         </Link>
 

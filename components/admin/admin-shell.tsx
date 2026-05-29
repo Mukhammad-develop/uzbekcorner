@@ -5,7 +5,7 @@ import { usePathname, useRouter } from 'next/navigation'
 import { signOut } from 'next-auth/react'
 import { useState } from 'react'
 import {
-  LayoutDashboard, CalendarClock, Armchair, UtensilsCrossed, Settings, Mail, LogOut, Menu, X, Home,
+  LayoutDashboard, CalendarClock, Armchair, UtensilsCrossed, Settings, Mail, LogOut, Menu, X, Home, BookOpen,
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
@@ -14,6 +14,7 @@ const NAV = [
   { href: '/admin/bookings', label: 'Bookings', icon: CalendarClock },
   { href: '/admin/tables', label: 'Tables', icon: Armchair },
   { href: '/admin/menu', label: 'Menu', icon: UtensilsCrossed },
+  { href: '/admin/blog', label: 'Blog', icon: BookOpen },
   { href: '/admin/settings', label: 'Settings', icon: Settings },
   { href: '/admin/emails', label: 'Notification Emails', icon: Mail },
 ]
