@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
 import { CalendarCheck, UtensilsCrossed } from 'lucide-react'
@@ -23,9 +24,18 @@ export function Hero() {
       {/* Parallax image */}
       <motion.div
         aria-hidden
-        style={{ y, backgroundImage: `url('${HERO_URL}')` }}
-        className="absolute inset-0 -top-10 -bottom-10 bg-cover bg-center will-change-transform"
-      />
+        style={{ y }}
+        className="absolute inset-0 -top-10 -bottom-10 will-change-transform"
+      >
+        <Image
+          src={HERO_URL}
+          alt="Traditional Uzbek Plov table settings"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+      </motion.div>
       {/* Dark gradient */}
       <motion.div
         aria-hidden
