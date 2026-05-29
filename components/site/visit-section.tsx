@@ -21,7 +21,7 @@ export function VisitSection({
   const today = new Date().getDay()
   const sorted = [...hours].sort((a, b) => a.dayOfWeek - b.dayOfWeek)
   const mapUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(address)}`
-  const embedUrl = `https://i.ytimg.com/vi/Pi1_BFQcClQ/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCqx7iISkQhrnGppJtfvU2Rli9ZqA`
+  const embedUrl = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2487.526325576955!2d-0.1328512233057043!3d51.43012731634529!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487605558d1ba6d9%3A0xdd2fb0c616fbe391!2sUzbek%20Corner!5e0!3m2!1sru!2s!4v1780066675497!5m2!1sru!2s`
 
   return (
     <section id="visit" className="py-24 md:py-32">
@@ -91,6 +91,7 @@ export function VisitSection({
               src={embedUrl}
               className="w-full h-full border-0"
               loading="lazy"
+              allowFullScreen
               referrerPolicy="no-referrer-when-downgrade"
             />
           </div>
