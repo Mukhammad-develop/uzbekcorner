@@ -37,7 +37,7 @@ async function main() {
       bookingDurationMin: 60,
       inclusive: true,
       restaurantName: 'Uzbek Corner London',
-      address: 'Queensway 23-25, W2 4QJ, London, United Kingdom',
+      address: 'Streatham High Rd, SW16, London, United Kingdom',
       phone: '+44 20 7000 0000',
       email: 'hello@uzbekcorner.co.uk',
     },

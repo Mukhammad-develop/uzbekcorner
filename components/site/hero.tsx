@@ -52,7 +52,7 @@ export function Hero() {
           className="font-display text-5xl sm:text-6xl md:text-7xl tracking-tight mt-6 leading-[1.02]"
         >
           A <span className="text-gold">homemade</span> Uzbek table
-          <br className="hidden md:block" /> in the heart of Queensway.
+          <br className="hidden md:block" /> in the heart of Streatham.
         </motion.h1>
 
         <motion.p
@@ -93,7 +93,7 @@ export function Hero() {
           <span className="w-1 h-1 rounded-full bg-white/40" />
           <span>Groups 4 – 14</span>
           <span className="w-1 h-1 rounded-full bg-white/40" />
-          <span>Queensway W2</span>
+          <span>Streatham SW16</span>
         </div>
       </div>
     </section>

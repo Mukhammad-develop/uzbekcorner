@@ -19,7 +19,7 @@ export function SiteFooter({
             <span className="font-display text-lg text-gold tracking-wide">Uzbek Corner London</span>
           </div>
           <p className="mt-4 text-sm leading-relaxed max-w-sm" style={{ color: 'rgba(255,255,255,0.75)' }}>
-            Homemade Plov, Somsa, Lagman and Shashlik — an authentic taste of Central Asia on Queensway.
+            Homemade Plov, Somsa, Lagman and Shashlik — an authentic taste of Central Asia in Streatham.
           </p>
         </div>
 
@@ -51,7 +51,7 @@ export function SiteFooter({
       <div style={{ borderTop: '1px solid rgba(255,255,255,0.12)' }}>
         <div className="mx-auto max-w-[1200px] px-5 md:px-8 py-5 text-xs flex flex-col md:flex-row items-center justify-between gap-2" style={{ color: 'rgba(255,255,255,0.65)' }}>
           <span>© 2026 Uzbek Corner London</span>
-          <span>Queensway 23-25 · W2 4QJ · United Kingdom</span>
+          <span>Streatham High Rd · SW16 · United Kingdom</span>
         </div>
       </div>
     </footer>

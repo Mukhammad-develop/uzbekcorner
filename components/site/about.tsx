@@ -34,10 +34,10 @@ export function About() {
         >
           <div className="eyebrow ornament text-navy/60">Our story</div>
           <h2 className="mt-4 font-display text-4xl md:text-5xl tracking-tight text-navy leading-tight">
-            A corner of <span className="text-[color:hsl(var(--accent))]">Uzbekistan</span>, set quietly on Queensway.
+            A corner of <span className="text-[color:hsl(var(--accent))]">Uzbekistan</span>, set quietly on Streatham.
           </h2>
           <p className="mt-6 text-navy/75 leading-relaxed">
-            Tucked inside Queensway Market, Uzbek Corner London has served homemade Central-Asian cooking since our
+            Tucked inside Streatham, Uzbek Corner London has served homemade Central-Asian cooking since our
             first kazan was fired. Our chef prepares everything with love, care and attention — plov layered slowly
             over lamb and sweet carrots, somsa stamped by hand, and lagman noodles pulled fresh each morning.
           </p>
@@ -49,7 +49,7 @@ export function About() {
           <div className="mt-10 grid grid-cols-3 gap-4">
             <Stat value="14" label="Seats for private dining" />
             <Stat value="20+" label="Dishes on the menu" />
-            <Stat value="W2" label="Queensway, London" />
+            <Stat value="SW16" label="Streatham, London" />
           </div>
         </motion.div>
       </div>

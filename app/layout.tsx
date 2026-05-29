@@ -13,9 +13,9 @@ const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-mon
 
 export const metadata: Metadata = {
   metadataBase: process.env.NEXTAUTH_URL ? new URL(process.env.NEXTAUTH_URL) : undefined,
-  title: 'Uzbek Corner London — Authentic Uzbek cuisine in Queensway',
+  title: 'Uzbek Corner London — Authentic Uzbek cuisine in Streatham',
   description:
-    'Uzbek Corner London serves Plov, Somsa, Lagman, Shashlik and more — an authentic Uzbek table in the heart of Queensway, W2.',
+    'Uzbek Corner London serves Plov, Somsa, Lagman, Shashlik and more — an authentic Uzbek table in the heart of Streatham.',
   icons: {
     icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }],
     shortcut: ['/favicon.svg'],
