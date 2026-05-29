@@ -11,13 +11,18 @@ import { Testimonials } from '@/components/site/testimonials'
 export const dynamic = 'force-dynamic'
 
 export default async function HomePage() {
-  const [settingsRow, hours, items] = await Promise.all([
+  const [settingsRow, hours, items, categories] = await Promise.all([
     prisma.restaurantSettings.findUnique({ where: { id: 1 } }),
     prisma.openingHour.findMany({ orderBy: { dayOfWeek: 'asc' } }),
     prisma.menuItem.findMany({
       where: { available: true, category: { active: true } },
       orderBy: [{ category: { sortOrder: 'asc' } }, { sortOrder: 'asc' }, { name: 'asc' }],
       take: 6,
+    }),
+    prisma.category.findMany({
+      where: { active: true, items: { some: { available: true } } },
+      orderBy: { sortOrder: 'asc' },
+      select: { id: true, name: true },
     }),
   ])
 
@@ -97,6 +102,7 @@ export default async function HomePage() {
             price: i.price,
             imageUrl: i.imageUrl,
           }))}
+          categories={categories}
         />
         <Testimonials />
         <CtaBand />

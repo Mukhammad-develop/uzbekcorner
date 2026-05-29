@@ -13,7 +13,12 @@ type Item = {
   imageUrl: string | null
 }
 
-export function MenuPreview({ items }: { items: Item[] }) {
+type Category = {
+  id: string
+  name: string
+}
+
+export function MenuPreview({ items, categories }: { items: Item[]; categories: Category[] }) {
   const safeItems = (items ?? []).slice(0, 6)
   return (
     <section id="menu-preview" className="py-24 md:py-32 bg-muted/40">
@@ -33,6 +38,22 @@ export function MenuPreview({ items }: { items: Item[] }) {
             <ArrowRight size={16} />
           </Link>
         </div>
+
+        {/* Category Deep Links for Premium SEO */}
+        {categories && categories.length > 0 && (
+          <div className="mt-8 flex flex-wrap items-center gap-2.5">
+            <span className="text-xs uppercase tracking-[0.18em] font-medium text-navy/55 mr-2">Jump to category:</span>
+            {categories.map((c) => (
+              <Link
+                key={c.id}
+                href={`/menu#cat-${c.id}`}
+                className="px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-white border border-navy/10 text-navy hover:bg-gold hover:border-gold hover:text-navy transition-all duration-300 shadow-[var(--shadow-xs)] hover:-translate-y-0.5 hover:shadow-sm"
+              >
+                {c.name}
+              </Link>
+            ))}
+          </div>
+        )}
 
         <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {safeItems.map((it, idx) => (
