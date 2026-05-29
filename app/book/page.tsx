@@ -4,7 +4,20 @@ import { SiteFooter } from '@/components/site/site-footer'
 import { BookingFlow } from '@/components/site/booking-flow'
 import { Breadcrumb } from '@/components/site/breadcrumb'
 
+import type { Metadata } from 'next'
+
 export const dynamic = 'force-dynamic'
+
+export const metadata: Metadata = {
+  title: 'Book a Table',
+  description: 'Reserve your table at Uzbek Corner London. Join us in Streatham, SW16 to experience authentic Central Asian hospitality, homemade plov, somsa, and shashlik.',
+  alternates: { canonical: 'https://uzbekcorner.uk/book' },
+  openGraph: {
+    title: 'Book a Table | Uzbek Corner London',
+    description: 'Reserve your table at Uzbek Corner London in Streatham. Experience authentic Central Asian hospitality and dining.',
+    url: 'https://uzbekcorner.uk/book',
+  },
+}
 
 export default async function BookPage() {
   const settingsRow = await prisma.restaurantSettings.findUnique({ where: { id: 1 } })

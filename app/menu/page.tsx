@@ -6,7 +6,20 @@ import Link from 'next/link'
 import { CalendarCheck } from 'lucide-react'
 import { Breadcrumb } from '@/components/site/breadcrumb'
 
+import type { Metadata } from 'next'
+
 export const dynamic = 'force-dynamic'
+
+export const metadata: Metadata = {
+  title: 'Our Menu',
+  description: 'Discover the authentic taste of Uzbekistan at Uzbek Corner London. From steaming hand-crafted Plov and crispy tandoor Somsa to succulent lamb Shashlik skewers and hand-pulled Lagman noodles in Streatham.',
+  alternates: { canonical: 'https://uzbekcorner.uk/menu' },
+  openGraph: {
+    title: 'Menu | Uzbek Corner London',
+    description: 'Explore our authentic Uzbek menu in Streatham. Homemade Plov, fresh tandoor Somsa, hand-pulled Lagman noodles, and charcoal Shashlik.',
+    url: 'https://uzbekcorner.uk/menu',
+  },
+}
 
 export default async function MenuPage() {
   const [settingsRow, categories] = await Promise.all([
@@ -34,8 +47,36 @@ export default async function MenuPage() {
 
   const nonEmpty = categories.filter((c) => (c.items?.length ?? 0) > 0)
 
+  const menuSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Menu',
+    name: `${settingsRow?.restaurantName ?? 'Uzbek Corner London'} Menu`,
+    mainEntityOfPage: 'https://uzbekcorner.uk/menu',
+    inLanguage: 'en',
+    hasMenuSection: nonEmpty.map((cat) => ({
+      '@type': 'MenuSection',
+      name: cat.name,
+      description: cat.description || undefined,
+      hasMenuItem: cat.items.map((item) => ({
+        '@type': 'MenuItem',
+        name: item.name,
+        description: item.description || undefined,
+        image: item.imageUrl ? `https://uzbekcorner.uk${item.imageUrl}` : undefined,
+        offers: {
+          '@type': 'Offer',
+          price: item.price.toFixed(2),
+          priceCurrency: 'GBP',
+        },
+      })),
+    })),
+  }
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(menuSchema) }}
+      />
       <SiteHeader />
       <main className="pt-28 md:pt-32">
         <div className="mx-auto max-w-[1200px] px-5 md:px-8">

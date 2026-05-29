@@ -70,13 +70,13 @@
       "static/chunks/878-8b9a6906.js",
       "static/chunks/app/menu/page-105fca53.js"
     ],
-    "/admin/emails/page": [
+    "/admin/bookings/page": [
       "static/chunks/webpack-63fafdc4.js",
       "static/chunks/fd9d1056-8e0367ad.js",
       "static/chunks/117-760cd612.js",
       "static/chunks/main-app-859a3708.js",
       "static/chunks/438-cc405ede.js",
-      "static/chunks/app/admin/emails/page-639a736e.js"
+      "static/chunks/app/admin/bookings/page-1d12341f.js"
     ],
     "/admin/layout": [
       "static/chunks/webpack-63fafdc4.js",
@@ -97,14 +97,6 @@
       "static/chunks/605-8df1dbaf.js",
       "static/chunks/app/admin/login/page-613f1b28.js"
     ],
-    "/admin/bookings/page": [
-      "static/chunks/webpack-63fafdc4.js",
-      "static/chunks/fd9d1056-8e0367ad.js",
-      "static/chunks/117-760cd612.js",
-      "static/chunks/main-app-859a3708.js",
-      "static/chunks/438-cc405ede.js",
-      "static/chunks/app/admin/bookings/page-1d12341f.js"
-    ],
     "/admin/tables/page": [
       "static/chunks/webpack-63fafdc4.js",
       "static/chunks/fd9d1056-8e0367ad.js",
@@ -121,6 +113,22 @@
       "static/chunks/438-cc405ede.js",
       "static/chunks/app/admin/settings/page-9ceb4d77.js"
     ],
+    "/admin/blog/page": [
+      "static/chunks/webpack-63fafdc4.js",
+      "static/chunks/fd9d1056-8e0367ad.js",
+      "static/chunks/117-760cd612.js",
+      "static/chunks/main-app-859a3708.js",
+      "static/chunks/438-cc405ede.js",
+      "static/chunks/app/admin/blog/page-89388233.js"
+    ],
+    "/admin/emails/page": [
+      "static/chunks/webpack-63fafdc4.js",
+      "static/chunks/fd9d1056-8e0367ad.js",
+      "static/chunks/117-760cd612.js",
+      "static/chunks/main-app-859a3708.js",
+      "static/chunks/438-cc405ede.js",
+      "static/chunks/app/admin/emails/page-639a736e.js"
+    ],
     "/admin/menu/page": [
       "static/chunks/webpack-63fafdc4.js",
       "static/chunks/fd9d1056-8e0367ad.js",
@@ -130,14 +138,6 @@
       "static/chunks/878-8b9a6906.js",
       "static/chunks/192-a36dfb32.js",
       "static/chunks/app/admin/menu/page-7a5939d3.js"
-    ],
-    "/admin/blog/page": [
-      "static/chunks/webpack-63fafdc4.js",
-      "static/chunks/fd9d1056-8e0367ad.js",
-      "static/chunks/117-760cd612.js",
-      "static/chunks/main-app-859a3708.js",
-      "static/chunks/438-cc405ede.js",
-      "static/chunks/app/admin/blog/page-89388233.js"
     ],
     "/admin/page": [
       "static/chunks/webpack-63fafdc4.js",

@@ -65,15 +65,17 @@ export default async function HomePage() {
       latitude: 51.4301,
       longitude: -0.1329,
     },
-    openingHoursSpecification: hours.map((h) => {
-      const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
-      return {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: days[h.dayOfWeek],
-        opens: h.closed ? '00:00' : h.openTime,
-        closes: h.closed ? '00:00' : h.closeTime,
-      }
-    }),
+    openingHoursSpecification: hours
+      .filter((h) => !h.closed)
+      .map((h) => {
+        const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+        return {
+          '@type': 'OpeningHoursSpecification',
+          dayOfWeek: days[h.dayOfWeek],
+          opens: h.openTime,
+          closes: h.closeTime,
+        }
+      }),
     aggregateRating: {
       '@type': 'AggregateRating',
       ratingValue: '4.9',

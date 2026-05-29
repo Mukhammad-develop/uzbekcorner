@@ -103,18 +103,18 @@ async function main() {
   }
 
   const items: { name: string; description: string; price: number; imageUrl: string; category: string; sortOrder: number }[] = [
-    { name: 'Somsa', description: 'Flaky pastry filled with lamb, onions & herbs, baked in the tandoor.', price: 4.50, imageUrl: 'https://thefoodhog.com/wp-content/uploads/2021/01/uzbek-samsa.jpg', category: 'Starters', sortOrder: 1 },
-    { name: 'Achichuk Salad', description: 'Ripe tomato, cucumber, red onion, coriander — a Central Asian classic.', price: 5.50, imageUrl: 'https://uzbekparty.com/wp-content/uploads/2024/02/ACHICHUK-SALAD-1.jpg', category: 'Starters', sortOrder: 2 },
-    { name: 'Non (Tandoor Bread)', description: 'Traditional round Uzbek bread, stamped and baked fresh.', price: 3.50, imageUrl: 'https://tasteofartisan.com/wp-content/uploads/2021/06/Uzbek-bread-obi-non-lepeshka-in-the-oven-crispy.jpg', category: 'Starters', sortOrder: 3 },
-    { name: 'Borsch', description: 'Hearty beetroot & beef broth, smetana and dill.', price: 6.90, imageUrl: 'https://media.houseandgarden.co.uk/photos/6189406cd9ae96d083cd0d7a/1:1/w_1500,h_1500,c_limit/20180621_saltandtime_day4_borsch_040.jpg', category: 'Soups', sortOrder: 1 },
-    { name: 'Lagman', description: 'Hand-pulled noodles with slow-cooked lamb, peppers and garlic broth.', price: 11.50, imageUrl: 'https://www.allrecipes.com/thmb/kACQLfnolBRCJulZAdKOlRiJhpQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Lagman-Uzbek-Noodle-Soup-07-2000-0ee85d31c9824951a37340832d25dafe.jpg', category: 'Soups', sortOrder: 2 },
-    { name: 'Plov', description: 'Our signature — rice, lamb, carrots, garlic and sultanas slow-cooked in the kazan.', price: 13.90, imageUrl: 'https://www.allrecipes.com/thmb/m6YXFp58z7PofDxNbHx_QEsni0E=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/4580553-2998dabe4f724ab79011677bad29a5c7.jpg', category: 'Main Courses', sortOrder: 1 },
-    { name: 'Manti', description: 'Hand-folded lamb dumplings, steamed and served with smetana.', price: 12.50, imageUrl: 'https://cannedexperience.com/wp-content/uploads/2025/01/manti-served-in-a-black-bowl1-scaled-1920x1920.jpeg', category: 'Main Courses', sortOrder: 2 },
-    { name: 'Shashlik — Lamb', description: 'Skewered lamb shoulder, charcoal-grilled with cumin & onion.', price: 13.50, imageUrl: 'https://petersfoodadventures.com/wp-content/uploads/2017/02/shashlik-recipes.jpg', category: 'Grill', sortOrder: 1 },
-    { name: 'Shashlik — Chicken', description: 'Marinated chicken thigh skewers, smoky and tender.', price: 11.90, imageUrl: 'https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=1200&q=80', category: 'Grill', sortOrder: 2 },
-    { name: 'Shashlik Platter', description: 'A generous mixed platter of lamb, chicken and kofta over charcoal.', price: 24.00, imageUrl: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=1200&q=80', category: 'Grill', sortOrder: 3 },
-    { name: 'Uzbek Piala Tea', description: 'Green or black leaf tea served in the traditional piala bowl.', price: 2.90, imageUrl: 'https://i.etsystatic.com/62796786/r/il/eddaca/7906206501/il_fullxfull.7906206501_2a5a.jpg', category: 'Desserts & Tea', sortOrder: 1 },
-    { name: 'Chak-Chak', description: 'Fried dough pieces bound in honey — sweet, sticky and golden.', price: 5.50, imageUrl: 'https://images.unsplash.com/photo-1587314168485-3236d6710814?w=1200&q=80', category: 'Desserts & Tea', sortOrder: 2 },
+    { name: 'Somsa', description: 'Flaky pastry filled with lamb, onions & herbs, baked in the tandoor.', price: 4.50, imageUrl: '/images/menu/somsa-london.jpg', category: 'Starters', sortOrder: 1 },
+    { name: 'Achichuk Salad', description: 'Ripe tomato, cucumber, red onion, coriander — a Central Asian classic.', price: 5.50, imageUrl: '/images/menu/achichuk-london.jpg', category: 'Starters', sortOrder: 2 },
+    { name: 'Non (Tandoor Bread)', description: 'Traditional round Uzbek bread, stamped and baked fresh.', price: 3.50, imageUrl: '/images/menu/obi-non-london.jpg', category: 'Starters', sortOrder: 3 },
+    { name: 'Borsch', description: 'Hearty beetroot & beef broth, smetana and dill.', price: 6.90, imageUrl: '/images/menu/borsch-london.jpg', category: 'Soups', sortOrder: 1 },
+    { name: 'Lagman', description: 'Hand-pulled noodles with slow-cooked lamb, peppers and garlic broth.', price: 11.50, imageUrl: '/images/menu/lagman-london.jpg', category: 'Soups', sortOrder: 2 },
+    { name: 'Plov', description: 'Our signature — rice, lamb, carrots, garlic and sultanas slow-cooked in the kazan.', price: 13.90, imageUrl: '/images/menu/plov-london.jpg', category: 'Main Courses', sortOrder: 1 },
+    { name: 'Manti', description: 'Hand-folded lamb dumplings, steamed and served with smetana.', price: 12.50, imageUrl: '/images/menu/manti-london.jpg', category: 'Main Courses', sortOrder: 2 },
+    { name: 'Shashlik — Lamb', description: 'Skewered lamb shoulder, charcoal-grilled with cumin & onion.', price: 13.50, imageUrl: '/images/menu/shashlik-lamb-london.jpg', category: 'Grill', sortOrder: 1 },
+    { name: 'Shashlik — Chicken', description: 'Marinated chicken thigh skewers, smoky and tender.', price: 11.90, imageUrl: '/images/menu/shashlik-chicken-london.jpg', category: 'Grill', sortOrder: 2 },
+    { name: 'Shashlik Platter', description: 'A generous mixed platter of lamb, chicken and kofta over charcoal.', price: 24.00, imageUrl: '/images/menu/shashlik-platter-london.jpg', category: 'Grill', sortOrder: 3 },
+    { name: 'Uzbek Piala Tea', description: 'Green or black leaf tea served in the traditional piala bowl.', price: 2.90, imageUrl: '/images/menu/uzbek-tea-london.jpg', category: 'Desserts & Tea', sortOrder: 1 },
+    { name: 'Chak-Chak', description: 'Fried dough pieces bound in honey — sweet, sticky and golden.', price: 5.50, imageUrl: '/images/menu/chak-chak-london.jpg', category: 'Desserts & Tea', sortOrder: 2 },
   ]
   for (const it of items) {
     const cid = categoryMap[it.category]
