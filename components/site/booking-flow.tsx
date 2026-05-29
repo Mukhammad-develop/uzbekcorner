@@ -160,7 +160,7 @@ export function BookingFlow() {
                   />
                 </div>
               </div>
-              <div className="mt-2 text-xs text-navy/55">Parties of 9+ please <a href="mailto:hello@uzbekcorner.co.uk?subject=Private%20dining%20enquiry" className="underline text-[color:hsl(var(--accent))]">email us</a> for private dining.</div>
+              <div className="mt-2 text-xs text-navy/55">Parties of 9+ please <a href="mailto:hello@uzbekcorner.uk?subject=Private%20dining%20enquiry" className="underline text-[color:hsl(var(--accent))]">email us</a> for private dining.</div>
             </div>
           </div>
         </div>

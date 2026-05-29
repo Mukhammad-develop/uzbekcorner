@@ -10,7 +10,7 @@ export default async function BookPage() {
   const settings = {
     address: settingsRow?.address ?? '2, Central Parade, Streatham High Rd, London SW16 1HT, United Kingdom',
     phone: settingsRow?.phone ?? '+442034902186',
-    email: settingsRow?.email ?? 'hello@uzbekcorner.co.uk',
+    email: settingsRow?.email ?? 'hello@uzbekcorner.uk',
     bookingDurationMin: settingsRow?.bookingDurationMin ?? 60,
   }
 

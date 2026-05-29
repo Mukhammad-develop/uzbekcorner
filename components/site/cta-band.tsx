@@ -27,7 +27,7 @@ export function CtaBand() {
               <Link href="/book" className="px-7 py-3.5 rounded-full bg-gold text-navy font-medium shadow-md hover:shadow-2xl hover:-translate-y-0.5 transition-all">
                 Book a table
               </Link>
-              <a href="mailto:hello@uzbekcorner.co.uk?subject=Private%20dining%20enquiry" className="px-7 py-3.5 rounded-full bg-white/10 border border-white/20 hover:bg-white/20 text-white transition-colors">
+              <a href="mailto:hello@uzbekcorner.uk?subject=Private%20dining%20enquiry" className="px-7 py-3.5 rounded-full bg-white/10 border border-white/20 hover:bg-white/20 text-white transition-colors">
                 Private dining →
               </a>
             </div>
