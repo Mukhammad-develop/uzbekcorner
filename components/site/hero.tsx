@@ -6,8 +6,7 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
 import { CalendarCheck, UtensilsCrossed } from 'lucide-react'
 
-const HERO_URL =
-  'https://www.allrecipes.com/thmb/m6YXFp58z7PofDxNbHx_QEsni0E=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/4580553-2998dabe4f724ab79011677bad29a5c7.jpg'
+const HERO_URL = '/images/hero-plov.jpg'
 
 export function Hero() {
   const ref = useRef<HTMLDivElement | null>(null)
