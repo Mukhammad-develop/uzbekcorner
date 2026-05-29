@@ -63,6 +63,8 @@ Thumbs.db
 *.db
 *.db-shm
 *.db-wal
+*.db-journal
 prisma/*.db
 prisma/*.db-shm
 prisma/*.db-wal
+prisma/*.db-journal

@@ -6,6 +6,8 @@ import { SiteHeader } from '@/components/site/site-header'
 import { SiteFooter } from '@/components/site/site-footer'
 import { CalendarDays } from 'lucide-react'
 
+import { Breadcrumb } from '@/components/site/breadcrumb'
+
 export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
@@ -20,20 +22,24 @@ export const metadata: Metadata = {
 }
 
 export default async function BlogPage() {
-  const posts = await prisma.blogPost.findMany({
-    where: { published: true },
-    orderBy: { publishedAt: 'desc' },
-    select: { slug: true, title: true, excerpt: true, imageUrl: true, publishedAt: true, createdAt: true },
-  })
-
-  const settings = await prisma.restaurantSettings.findUnique({ where: { id: 1 } })
+  const [posts, settings] = await Promise.all([
+    prisma.blogPost.findMany({
+      where: { published: true },
+      orderBy: { publishedAt: 'desc' },
+      select: { slug: true, title: true, excerpt: true, imageUrl: true, publishedAt: true, createdAt: true },
+    }),
+    prisma.restaurantSettings.findUnique({ where: { id: 1 } }),
+  ])
 
   return (
     <>
       <SiteHeader />
-      <main>
+      <main className="pt-28 md:pt-32">
+        <div className="mx-auto max-w-[1200px] px-5 md:px-8">
+          <Breadcrumb items={[{ label: 'Blog', url: '/blog' }]} />
+        </div>
         {/* Hero */}
-        <section className="py-20 md:py-28 bg-[hsl(var(--bg))]">
+        <section className="py-20 md:py-28 bg-[hsl(var(--bg))] mt-2">
           <div className="mx-auto max-w-[1200px] px-5 md:px-8 text-center">
             <div className="eyebrow ornament text-navy/60">Our journal</div>
             <h1 className="mt-4 font-display text-5xl md:text-6xl tracking-tight text-navy leading-tight">
@@ -92,6 +98,10 @@ export default async function BlogPage() {
         address={settings?.address ?? '2, Central Parade, Streatham High Rd, London SW16 1HT, United Kingdom'}
         phone={settings?.phone ?? '+442034902186'}
         email={settings?.email ?? 'hello@uzbekcorner.uk'}
+        instagramUrl={settings?.instagramUrl}
+        facebookUrl={settings?.facebookUrl}
+        tiktokUrl={settings?.tiktokUrl}
+        googleBusinessUrl={settings?.googleBusinessUrl}
       />
     </>
   )

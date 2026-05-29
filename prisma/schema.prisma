@@ -27,6 +27,10 @@ model RestaurantSettings {
   address          String   @default("Queensway 23-25, W2 4QJ, London, United Kingdom")
   phone            String   @default("+44 20 0000 0000")
   email            String   @default("hello@uzbekcorner.co.uk")
+  instagramUrl     String?
+  facebookUrl      String?
+  tiktokUrl        String?
+  googleBusinessUrl String?
   updatedAt        DateTime @updatedAt
 }
 

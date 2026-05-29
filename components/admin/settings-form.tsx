@@ -13,12 +13,16 @@ type Settings = {
   address: string
   phone: string
   email: string
+  instagramUrl?: string | null
+  facebookUrl?: string | null
+  tiktokUrl?: string | null
+  googleBusinessUrl?: string | null
 }
 type Hour = { dayOfWeek: number; openTime: string; closeTime: string; closed: boolean }
 
 export function SettingsForm({ initialSettings, initialHours }: { initialSettings: Settings | null; initialHours: Hour[] }) {
   const [settings, setSettings] = useState<Settings>(
-    initialSettings ?? { slotIntervalMin: 15, bookingDurationMin: 60, inclusive: true, restaurantName: 'Uzbek Corner London', address: '', phone: '', email: '' },
+    initialSettings ?? { slotIntervalMin: 15, bookingDurationMin: 60, inclusive: true, restaurantName: 'Uzbek Corner London', address: '', phone: '', email: '', instagramUrl: '', facebookUrl: '', tiktokUrl: '', googleBusinessUrl: '' },
   )
   const [hours, setHours] = useState<Hour[]>(() => {
     const byDow = new Map(initialHours.map((h) => [h.dayOfWeek, h]))
@@ -117,6 +121,26 @@ export function SettingsForm({ initialSettings, initialHours }: { initialSetting
           <Field label="Phone"><input className="ucinput" value={settings.phone} onChange={(e) => setSettings((s) => ({ ...s, phone: e.target.value }))} /></Field>
           <Field label="Email"><input type="email" className="ucinput" value={settings.email} onChange={(e) => setSettings((s) => ({ ...s, email: e.target.value }))} /></Field>
           <Field label="Address"><input className="ucinput" value={settings.address} onChange={(e) => setSettings((s) => ({ ...s, address: e.target.value }))} /></Field>
+        </div>
+      </section>
+
+      {/* Social Media Links */}
+      <section className="rounded-lg bg-white p-6 shadow-[var(--shadow-sm)]">
+        <h2 className="font-display text-xl text-navy">Social Media Profiles</h2>
+        <p className="mt-1 text-sm text-navy/60">Provide links to your social media accounts and Google Business profile to boost trust and SEO.</p>
+        <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+          <Field label="Instagram URL">
+            <input className="ucinput" placeholder="https://instagram.com/your-username" value={settings.instagramUrl ?? ''} onChange={(e) => setSettings((s) => ({ ...s, instagramUrl: e.target.value }))} />
+          </Field>
+          <Field label="Facebook URL">
+            <input className="ucinput" placeholder="https://facebook.com/your-page" value={settings.facebookUrl ?? ''} onChange={(e) => setSettings((s) => ({ ...s, facebookUrl: e.target.value }))} />
+          </Field>
+          <Field label="TikTok URL">
+            <input className="ucinput" placeholder="https://tiktok.com/@your-username" value={settings.tiktokUrl ?? ''} onChange={(e) => setSettings((s) => ({ ...s, tiktokUrl: e.target.value }))} />
+          </Field>
+          <Field label="Google Business Profile URL">
+            <input className="ucinput" placeholder="https://maps.google.com/..." value={settings.googleBusinessUrl ?? ''} onChange={(e) => setSettings((s) => ({ ...s, googleBusinessUrl: e.target.value }))} />
+          </Field>
         </div>
       </section>
 

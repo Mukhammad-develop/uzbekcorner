@@ -4,6 +4,7 @@ import { SiteHeader } from '@/components/site/site-header'
 import { SiteFooter } from '@/components/site/site-footer'
 import Link from 'next/link'
 import { CalendarCheck } from 'lucide-react'
+import { Breadcrumb } from '@/components/site/breadcrumb'
 
 export const dynamic = 'force-dynamic'
 
@@ -25,6 +26,10 @@ export default async function MenuPage() {
     address: settingsRow?.address ?? '2, Central Parade, Streatham High Rd, London SW16 1HT, United Kingdom',
     phone: settingsRow?.phone ?? '+442034902186',
     email: settingsRow?.email ?? 'hello@uzbekcorner.uk',
+    instagramUrl: settingsRow?.instagramUrl,
+    facebookUrl: settingsRow?.facebookUrl,
+    tiktokUrl: settingsRow?.tiktokUrl,
+    googleBusinessUrl: settingsRow?.googleBusinessUrl,
   }
 
   const nonEmpty = categories.filter((c) => (c.items?.length ?? 0) > 0)
@@ -33,8 +38,11 @@ export default async function MenuPage() {
     <>
       <SiteHeader />
       <main className="pt-28 md:pt-32">
+        <div className="mx-auto max-w-[1200px] px-5 md:px-8">
+          <Breadcrumb items={[{ label: 'Menu', url: '/menu' }]} />
+        </div>
         {/* Page header */}
-        <section className="relative py-16 md:py-24 bg-navy text-white overflow-hidden">
+        <section className="relative py-16 md:py-24 bg-navy text-white overflow-hidden mt-2">
           <div aria-hidden className="absolute inset-0 suzani-bg opacity-60" />
           <div className="relative mx-auto max-w-[1200px] px-5 md:px-8 text-center">
             <div className="eyebrow ornament text-gold">The menu</div>
@@ -135,7 +143,15 @@ export default async function MenuPage() {
           </div>
         </section>
       </main>
-      <SiteFooter address={settings.address} phone={settings.phone} email={settings.email} />
+      <SiteFooter
+        address={settings.address}
+        phone={settings.phone}
+        email={settings.email}
+        instagramUrl={settings.instagramUrl}
+        facebookUrl={settings.facebookUrl}
+        tiktokUrl={settings.tiktokUrl}
+        googleBusinessUrl={settings.googleBusinessUrl}
+      />
     </>
   )
 }

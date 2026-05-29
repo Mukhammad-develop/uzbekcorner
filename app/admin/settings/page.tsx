@@ -20,6 +20,10 @@ export default async function SettingsPage() {
       address: settings.address,
       phone: settings.phone,
       email: settings.email,
+      instagramUrl: settings.instagramUrl,
+      facebookUrl: settings.facebookUrl,
+      tiktokUrl: settings.tiktokUrl,
+      googleBusinessUrl: settings.googleBusinessUrl,
     } : null}
     initialHours={hours.map((h) => ({ dayOfWeek: h.dayOfWeek, openTime: h.openTime, closeTime: h.closeTime, closed: h.closed }))}
   />

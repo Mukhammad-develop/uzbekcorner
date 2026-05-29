@@ -6,6 +6,7 @@ import type { Metadata } from 'next'
 import { SiteHeader } from '@/components/site/site-header'
 import { SiteFooter } from '@/components/site/site-footer'
 import { CalendarDays, ArrowLeft } from 'lucide-react'
+import { Breadcrumb } from '@/components/site/breadcrumb'
 
 export const dynamic = 'force-dynamic'
 
@@ -48,21 +49,54 @@ export default async function BlogPostPage({ params }: Props) {
 
   const settings = await prisma.restaurantSettings.findUnique({ where: { id: 1 } })
 
+  const blogPostingSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: post.title,
+    description: post.excerpt ?? post.content.slice(0, 155),
+    image: post.imageUrl ?? 'https://uzbekcorner.uk/og-image.png',
+    datePublished: (post.publishedAt ?? post.createdAt).toISOString(),
+    dateModified: post.updatedAt.toISOString(),
+    author: {
+      '@type': 'Organization',
+      name: settings?.restaurantName ?? 'Uzbek Corner London',
+      url: 'https://uzbekcorner.uk',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: settings?.restaurantName ?? 'Uzbek Corner London',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://uzbekcorner.uk/og-image.png',
+      },
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `https://uzbekcorner.uk/blog/${post.slug}`,
+    },
+  }
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingSchema) }}
+      />
       <SiteHeader />
-      <main>
+      <main className="pt-28 md:pt-32">
         {/* Hero image */}
         {post.imageUrl && (
-          <div className="relative w-full aspect-[21/9] max-h-[480px] bg-navy/10 overflow-hidden">
+          <div className="relative w-full aspect-[21/9] max-h-[480px] bg-navy/10 overflow-hidden mb-6">
             <Image src={post.imageUrl} alt={post.title} fill className="object-cover" priority />
             <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
           </div>
         )}
 
-        <article className="mx-auto max-w-[760px] px-5 md:px-8 py-14 md:py-20">
+        <article className="mx-auto max-w-[760px] px-5 md:px-8 py-10 md:py-16">
+          <Breadcrumb items={[{ label: 'Blog', url: '/blog' }, { label: post.title }]} />
+          
           {/* Back link */}
-          <Link href="/blog" className="inline-flex items-center gap-2 text-sm text-navy/60 hover:text-navy mb-10 group">
+          <Link href="/blog" className="inline-flex items-center gap-2 text-sm text-navy/60 hover:text-navy mb-8 mt-6 group">
             <ArrowLeft size={15} className="group-hover:-translate-x-1 transition-transform" /> All posts
           </Link>
 
@@ -105,6 +139,10 @@ export default async function BlogPostPage({ params }: Props) {
         address={settings?.address ?? '2, Central Parade, Streatham High Rd, London SW16 1HT, United Kingdom'}
         phone={settings?.phone ?? '+442034902186'}
         email={settings?.email ?? 'hello@uzbekcorner.uk'}
+        instagramUrl={settings?.instagramUrl}
+        facebookUrl={settings?.facebookUrl}
+        tiktokUrl={settings?.tiktokUrl}
+        googleBusinessUrl={settings?.googleBusinessUrl}
       />
     </>
   )

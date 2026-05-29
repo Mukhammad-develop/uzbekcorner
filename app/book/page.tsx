@@ -2,6 +2,7 @@ import { prisma } from '@/lib/db'
 import { SiteHeader } from '@/components/site/site-header'
 import { SiteFooter } from '@/components/site/site-footer'
 import { BookingFlow } from '@/components/site/booking-flow'
+import { Breadcrumb } from '@/components/site/breadcrumb'
 
 export const dynamic = 'force-dynamic'
 
@@ -12,13 +13,20 @@ export default async function BookPage() {
     phone: settingsRow?.phone ?? '+442034902186',
     email: settingsRow?.email ?? 'hello@uzbekcorner.uk',
     bookingDurationMin: settingsRow?.bookingDurationMin ?? 60,
+    instagramUrl: settingsRow?.instagramUrl,
+    facebookUrl: settingsRow?.facebookUrl,
+    tiktokUrl: settingsRow?.tiktokUrl,
+    googleBusinessUrl: settingsRow?.googleBusinessUrl,
   }
 
   return (
     <>
       <SiteHeader />
       <main className="pt-28 md:pt-32 pb-4">
-        <section className="relative py-14 md:py-20 bg-navy text-white overflow-hidden">
+        <div className="mx-auto max-w-[1200px] px-5 md:px-8">
+          <Breadcrumb items={[{ label: 'Book a Table', url: '/book' }]} />
+        </div>
+        <section className="relative py-14 md:py-20 bg-navy text-white overflow-hidden mt-2">
           <div aria-hidden className="absolute inset-0 suzani-bg opacity-60" />
           <div className="relative mx-auto max-w-[1200px] px-5 md:px-8 text-center">
             <div className="eyebrow ornament text-gold">Reservations</div>
@@ -33,7 +41,15 @@ export default async function BookPage() {
 
         <BookingFlow />
       </main>
-      <SiteFooter address={settings.address} phone={settings.phone} email={settings.email} />
+      <SiteFooter
+        address={settings.address}
+        phone={settings.phone}
+        email={settings.email}
+        instagramUrl={settings.instagramUrl}
+        facebookUrl={settings.facebookUrl}
+        tiktokUrl={settings.tiktokUrl}
+        googleBusinessUrl={settings.googleBusinessUrl}
+      />
     </>
   )
 }

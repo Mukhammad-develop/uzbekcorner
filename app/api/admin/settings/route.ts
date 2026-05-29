@@ -29,6 +29,10 @@ export async function PATCH(req: Request) {
           address: String(settings.address ?? ''),
           phone: String(settings.phone ?? ''),
           email: String(settings.email ?? ''),
+          instagramUrl: settings.instagramUrl ? String(settings.instagramUrl) : null,
+          facebookUrl: settings.facebookUrl ? String(settings.facebookUrl) : null,
+          tiktokUrl: settings.tiktokUrl ? String(settings.tiktokUrl) : null,
+          googleBusinessUrl: settings.googleBusinessUrl ? String(settings.googleBusinessUrl) : null,
         },
         create: {
           id: 1,
@@ -39,6 +43,10 @@ export async function PATCH(req: Request) {
           address: String(settings.address ?? ''),
           phone: String(settings.phone ?? ''),
           email: String(settings.email ?? ''),
+          instagramUrl: settings.instagramUrl ? String(settings.instagramUrl) : null,
+          facebookUrl: settings.facebookUrl ? String(settings.facebookUrl) : null,
+          tiktokUrl: settings.tiktokUrl ? String(settings.tiktokUrl) : null,
+          googleBusinessUrl: settings.googleBusinessUrl ? String(settings.googleBusinessUrl) : null,
         },
       })
     }
