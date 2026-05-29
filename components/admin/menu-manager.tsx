@@ -90,7 +90,7 @@ function SortableItemCard({
         <div
           {...attributes}
           {...listeners}
-          className="absolute top-2 left-2 cursor-grab active:cursor-grabbing text-navy/30 hover:text-navy/60 z-10"
+          className="absolute top-2 left-2 cursor-grab active:cursor-grabbing z-10 bg-white rounded-md shadow-md px-1 py-1 text-navy/60 hover:text-navy hover:shadow-lg transition-all"
         >
           <GripVertical size={16} />
         </div>
