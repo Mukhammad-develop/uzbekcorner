@@ -4,6 +4,7 @@ import { Toaster } from '@/components/ui/sonner'
 import { ChunkLoadErrorHandler } from '@/components/chunk-load-error-handler'
 import { SessionProviderWrapper } from '@/components/providers/session-provider'
 import type { Metadata } from 'next'
+import Script from 'next/script'
 
 export const dynamic = 'force-dynamic'
 
@@ -67,14 +68,12 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <script src="https://apps.abacus.ai/chatllm/appllm-lib.js" async />
-      </head>
       <body className={`${dmSans.variable} ${playfair.variable} ${jetbrainsMono.variable} font-sans`}>
         <SessionProviderWrapper>
           {children}
           <Toaster richColors closeButton />
           <ChunkLoadErrorHandler />
+          <Script src="https://apps.abacus.ai/chatllm/appllm-lib.js" strategy="lazyOnload" />
         </SessionProviderWrapper>
       </body>
     </html>
