@@ -51,7 +51,7 @@ export function SiteFooter({
       <div style={{ borderTop: '1px solid rgba(255,255,255,0.12)' }}>
         <div className="mx-auto max-w-[1200px] px-5 md:px-8 py-5 text-xs flex flex-col md:flex-row items-center justify-between gap-2" style={{ color: 'rgba(255,255,255,0.65)' }}>
           <span>© 2026 Uzbek Corner London</span>
-          <span>Streatham High Rd · SW16 · United Kingdom</span>
+          <span>2, Central Parade, Streatham High Rd · SW16 1HT · United Kingdom</span>
         </div>
       </div>
     </footer>

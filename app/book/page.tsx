@@ -8,7 +8,7 @@ export const dynamic = 'force-dynamic'
 export default async function BookPage() {
   const settingsRow = await prisma.restaurantSettings.findUnique({ where: { id: 1 } })
   const settings = {
-    address: settingsRow?.address ?? 'Streatham High Rd, SW16, London, United Kingdom',
+    address: settingsRow?.address ?? '2, Central Parade, Streatham High Rd, London SW16 1HT, United Kingdom',
     phone: settingsRow?.phone ?? '+44 20 0000 0000',
     email: settingsRow?.email ?? 'hello@uzbekcorner.co.uk',
     bookingDurationMin: settingsRow?.bookingDurationMin ?? 60,

@@ -37,7 +37,7 @@ async function main() {
       bookingDurationMin: 60,
       inclusive: true,
       restaurantName: 'Uzbek Corner London',
-      address: 'Streatham High Rd, SW16, London, United Kingdom',
+      address: '2, Central Parade, Streatham High Rd, London SW16 1HT, United Kingdom',
       phone: '+44 20 7000 0000',
       email: 'hello@uzbekcorner.co.uk',
     },
