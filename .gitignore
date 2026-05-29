@@ -58,3 +58,11 @@ Thumbs.db
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+
+# SQLite databases — never commit production data
+*.db
+*.db-shm
+*.db-wal
+prisma/*.db
+prisma/*.db-shm
+prisma/*.db-wal
