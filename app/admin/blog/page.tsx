@@ -17,7 +17,13 @@ export default async function AdminBlogPage() {
   return (
     <BlogManager
       initialPosts={posts.map((p) => ({
-        ...p,
+        id: p.id,
+        slug: p.slug,
+        title: p.title,
+        excerpt: p.excerpt,
+        content: p.content,
+        imageUrl: p.imageUrl,
+        published: p.published,
         publishedAt: p.publishedAt?.toISOString() ?? null,
         createdAt: p.createdAt.toISOString(),
       }))}
